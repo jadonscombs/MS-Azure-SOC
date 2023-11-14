@@ -41,6 +41,7 @@ For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL t
 The following table shows key metrics measured in our insecure environment over 24 hours:
 
 Start Time 2023-11-05 21:19:54
+
 Stop Time 2023-11-06 21:19:54
 
 | Metric                   | Count
@@ -60,6 +61,7 @@ Stop Time 2023-11-06 21:19:54
 The following table shows key metrics measured in our Azure environment over 24 hours, after applying security controls:
 
 Start Time 2023-11-11 00:26:59
+
 Stop Time	2023-11-12 00:26:59
 
 | Metric                   | Count
