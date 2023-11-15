@@ -14,10 +14,10 @@ In this project, I leverage Microsoft Azure to bulid a mini honeynet, create and
 ## Architecture Before Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/zNxETMO.png)
 
-## TODO: Architecture After Hardening / Security Controls
+## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/0saQTfy.png)
 
-The architecture of the mini honeynet in Azure consists of the following components:
+TODO: The architecture of the mini honeynet in Azure consists of the following components:
 
 - Virtual Network (VNet)
 - Network Security Group (NSG)
@@ -51,9 +51,9 @@ Stop Time 2023-11-06 21:19:54
 | SecurityIncident         | 259
 | AzureNetworkAnalytics_CL | 3019
 
-## TODO: Attack Maps Before Hardening / Security Controls
+## Attack Maps After Hardening / Security Controls
 
-```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
+```All map queries actually returned no results (satisfactorily) due to no instances of malicious activity for the 24 hour period after hardening.```
 
 ## Metrics After Hardening / Security Controls
 
