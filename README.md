@@ -17,7 +17,7 @@ In this project, I leverage Microsoft Azure to bulid a mini honeynet, create and
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/0saQTfy.png)
 
-TODO: The architecture of the mini honeynet in Azure consists of the following components:
+The mini honeynet architecture in Azure consists of the following components:
 
 - Virtual Network (VNet)
 - Network Security Group (NSG)
@@ -27,9 +27,9 @@ TODO: The architecture of the mini honeynet in Azure consists of the following c
 - Azure Storage Account
 - Microsoft Sentinel
 
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
+For the "BEFORE" metrics, all resources were originally deployed and exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
 
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+For the "AFTER" metrics, VM-attached Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation. All other resources were protected by their built-in firewalls and established Private Endpoints.
 
 ## Attack Maps Before Hardening / Security Controls
 ![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/tieyBGA.png)<br>
@@ -70,8 +70,22 @@ Stop Time	2023-11-12 00:26:59
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
 
-## TODO: Conclusion
+## Comparison of Before and After Metrics
 
-In this project, a mini honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was employed to trigger alerts and create incidents based on the ingested logs. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
+From observing the difference in metrics between an insecure and hardened environment, key improvements and KPIs are summarized below:  
 
-It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
+| Metric                   | Percent (%) change in alerts/incidents
+| ------------------------ | -------------------------------------------
+| SecurityEvent            | -92.18%
+| Syslog                   | -99.99%
+| SecurityAlert            | -100.00%
+| SecurityIncident         | -100.00%
+| AzureNetworkAnalytics_CL | -100.00%
+
+## Recap / Conclusion
+
+In this project, a mini honeynet was constructed in Microsoft Azure and log sources from the various resources built within the Azure environment were integrated into a Log Analytics workspace to be used by Microsoft Sentinel. Within Sentinel, alerts were triggered and incidents were created based on the ingested logs.  
+
+Additionally, metrics measured from before and after hardening with security controls, including measurements taken after remediation steps and security measure implementations, reveal a clear improvement in overall security posture. The number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness and highlighting the importance of fundamental security hardening and establishing basic security controls within any environment to reduce risk towards organizational assets and critical systems.
+
+It is worth noting that by no means should resources be exposed to the public Internet as demonstrated in this contained lab. Proper security controls and network configurations should be in place, especially for production or information-sensitive systems. It is also worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
